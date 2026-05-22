@@ -4,15 +4,49 @@ import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const pageTitle = "About Me!!!";
+
+const identity = {
+	firstName: "Lulu",
+	city: "Ottawa",
+	occupation: "Frontend Developer",
+	hobbies: "Cook, Hike"
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro"];
+
+
+const happy = true;
+const finished = false;
+const goal = 2;
+
 ---
+
 
 <Layout>
 	<a href="/">Home</a>
 	<a href="/about">About Me</a>
 	<a href="/blog">Blog</a>
 
-	<h1>About Me</h1>
+	<h1>{pageTitle}</h1>
 	<h2>This is my first Astro Site</h2>
-	<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-	<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+	<p>Here are a few facts about me:</p>
+	<ul>
+		<li>My name is {identity.firstName}.</li>
+		<li>I live in {identity.city} and I work as a {identity.occupation}.</li>
+		{identity.hobbies.length >= 2 &&
+			<li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+		}
+	</ul>
+	<p>My skills are:</p>
+	<ul>
+		{skills.map((skill) => <li>{skill}</li>)}
+	</ul>
+
+	{happy && <p>I am happy to be learning Astro!</p>}
+
+	{finished && <p>I finished this tutorial!</p>}
+
+	{goal === 2 ? <p>My goal is to finish in 2 days.</p> : <p>My goal is not 2 days.</p>}
 </Layout>
