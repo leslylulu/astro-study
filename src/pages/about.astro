@@ -1,7 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -28,8 +26,7 @@ const textCase = "uppercase"
 ---
 
 
-<Layout>
-	<Header/>
+<BaseLayout>
 	<h1>{pageTitle}</h1>
 	<h2>This is my first Astro Site</h2>
 	<p>Here are a few facts about me:</p>
@@ -50,8 +47,7 @@ const textCase = "uppercase"
 	{finished && <p>I finished this tutorial!</p>}
 
 	{goal === 2 ? <p>My goal is to finish in 2 days.</p> : <p>My goal is not 2 days.</p>}
-	<Footer/>
-</Layout>
+</BaseLayout>
 
 
 <style define:vars={{skillColor, textCase}}>

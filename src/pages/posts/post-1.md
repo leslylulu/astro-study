@@ -1,8 +1,9 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'My First Blog Post'
 pubDate: 2025-05-22
 description: 'This is the first post of my new Astro blog.'
-author: 'Lulu Astro Learner'
+author: 'Lulu Zhang'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
@@ -11,11 +12,7 @@ tags: ["astro", "Lulu Zhang", "blogging", "learning in public"]
 
 <!-- the above is called frontmatter -->
 <!-- not show on the page it will enhance the page -->
-# My First Blog Post
 
-Published on: 2025-05-22
-
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
 ## What I've accomplished
 
