@@ -1,10 +1,15 @@
 ---
+import type { 
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths
+} from 'astro';
 import { getCollection } from 'astro:content';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogPost from '../../components/BlogPost.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogPost from '@components/BlogPost.astro';
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const allPosts = await getCollection("blog");
   const uniqueTags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
 
@@ -16,10 +21,13 @@ export async function getStaticPaths() {
     };
   });
 
-}
+}) satisfies GetStaticPaths;
 
-const { tag } = Astro.params;
-const { posts } = Astro.props;
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { tag } = Astro.params as Params;
+const { posts } = Astro.props as Props;
 
 ---
 <BaseLayout pageTitle={tag}>

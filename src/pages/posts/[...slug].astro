@@ -1,8 +1,13 @@
 ---
 import { getCollection, render } from "astro:content";
-import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+import MarkdownPostLayout from "@layouts/MarkdownPostLayout.astro";
 
-export async function getStaticPaths(){
+import type { 
+	InferGetStaticPropsType,
+	GetStaticPaths 
+} from "astro";	
+
+export const getStaticPaths = (async () => {
 	const posts = await getCollection('blog');
 
 	return posts.map(post => ({
@@ -10,9 +15,11 @@ export async function getStaticPaths(){
 		props: { post }
 	}))
 
-}
+}) satisfies GetStaticPaths;
 
-const { post } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props as Props;
 const { Content } = await render(post);
 
 ---

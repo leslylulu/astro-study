@@ -1,7 +1,11 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import '@styles/global.css';
+interface Props{
+  pageTitle: string
+}
+
 const { pageTitle } = Astro.props;
 ---
 <html lang="en">
@@ -21,7 +25,7 @@ const { pageTitle } = Astro.props;
 		<!-- The <slot /> allows you to inject (or “slot in”) child content written between opening and closing <Component></Component> tags to any Component.astro file. -->
     <Footer />
     <script>
-      import "../scripts/menu.js";
+      import "@scripts/menu.ts";
     </script>
   </body>
 </html>

@@ -1,33 +1,35 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/global.css';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '@layouts/BaseLayout.astro';
+import '@styles/global.css';
 
 const pageTitle = "About Me :)";
 
-const identity = {
+interface Identity{
+	firstName: string;
+	city: string;
+  occupation: string;
+  hobbies: string[];
+}
+const identity: Identity = {
 	firstName: "Lulu",
 	city: "Ottawa",
 	occupation: "Frontend Developer",
 	hobbies: ["Cook", "Hike"]
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro"];
+const skills: string[] = ["HTML", "CSS", "JavaScript", "React", "Astro"];
 
 
-const happy = true;
-const finished = true;
-const goal = 2;
+const happy: boolean = true;
+const finished: boolean = true;
+const goal: number = 2;
 
-const skillColor = "#D5FFE4"
-const textCase = "uppercase"
+const skillColor: string = "#D5FFE4"
+const textCase: string = "uppercase"
 ---
 
 
-<BaseLayout>
-	<h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
 	<h2>This is my first Astro Site</h2>
 	<p>Here are a few facts about me:</p>
 	<ul>

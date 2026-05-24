@@ -1,5 +1,22 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+interface Frontmatter{
+  title: string;
+  pubDate: Date;
+  description: string;
+  author: string;
+  image: {
+    url: string;
+    alt: string;
+  };
+  tags: string[];
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
 const { frontmatter } = Astro.props;
 
 ---
